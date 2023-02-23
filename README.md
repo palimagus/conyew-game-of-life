@@ -10,6 +10,6 @@ So I did it using the yew, web-sys and wasm-bindgen packages 📦.
 
 You will need to install Trunk to build the project. Everthing you need to know is on the [Trunk's website](https://trunkrs.dev/).
 
-Next just install the dependencies with `cargo install` and run the project with `trunk serve`.
+Next just install the dependencies with `cargo build` and run the project with `trunk serve`.
 
 Thanks for reading and have a nice day ! 🌞
