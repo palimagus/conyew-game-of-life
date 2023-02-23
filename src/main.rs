@@ -1,5 +1,5 @@
 
-use random::Source;
+use rand::distributions::{Uniform, Distribution};
 use wasm_bindgen::{JsValue, JsCast, prelude::Closure};
 use yew::prelude::*;
 use web_sys::{HtmlCanvasElement, CanvasRenderingContext2d, window};
@@ -14,11 +14,13 @@ pub struct Universe {
 
 impl Universe {
     pub fn new(width: u32, height: u32) -> Universe {
-        let mut source = random::default(42);
+        let mut rng = rand::thread_rng();
+        let die = Uniform::from(1..7);
         // Generate random cells
         let cells = (0..width * height)
             .map(|_| {
-                if source.read::<f64>() < 0.5 {
+                let throw = die.sample(&mut rng);
+                if throw <= 3 {
                     0
                 } else {
                     1
